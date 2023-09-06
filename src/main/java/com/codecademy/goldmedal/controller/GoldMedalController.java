@@ -1,6 +1,7 @@
 package com.codecademy.goldmedal.controller;
 
 import com.codecademy.goldmedal.model.*;
+import com.codecademy.goldmedal.repositories.GoldMedalRepository;
 import org.apache.commons.text.WordUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,9 +13,11 @@ import java.util.stream.Collectors;
 @RequestMapping("/countries")
 public class GoldMedalController {
     // TODO: declare references to your repositories
-
+    GoldMedalRepository goldMedalRepository;
     // TODO: update your constructor to include your repositories
-    public GoldMedalController() {
+
+    public GoldMedalController(GoldMedalRepository goldMedalRepository) {
+        this.goldMedalRepository = goldMedalRepository;
     }
 
     @GetMapping
@@ -40,19 +43,23 @@ public class GoldMedalController {
         List<GoldMedal> medalsList;
         switch (sortBy) {
             case "year":
-                medalsList = // TODO: list of medals sorted by year in the given order
+                medalsList = ascendingOrder ? this.goldMedalRepository.findMedalAllByCountryOrderByYearAsc(countryName) :  this.goldMedalRepository.findMedalAllByCountry(countryName);// TODO: list of medals sorted by year in the given order
                 break;
             case "season":
-                medalsList = // TODO: list of medals sorted by season in the given order
+                medalsList = ascendingOrder ? this.goldMedalRepository.findMedalAllByCountryOrderBySeasonAsc(countryName) : this.goldMedalRepository.findMedalAllByCountry(countryName);// TODO: list of medals sorted by season in the given order
+
                 break;
             case "city":
-                medalsList = // TODO: list of medals sorted by city in the given order
+                medalsList = ascendingOrder ? this.goldMedalRepository.findMedalAllByCountryOrderByCityAsc(countryName) : this.goldMedalRepository.findMedalAllByCountry(countryName);// TODO: list of medals sorted by city in the given order
+
                 break;
             case "name":
-                medalsList = // TODO: list of medals sorted by athlete's name in the given order
+                medalsList = ascendingOrder ? this.goldMedalRepository.findMedalAllByCountryOrderByNameAsc(countryName) : this.goldMedalRepository.findMedalAllByCountry(countryName);// TODO: list of medals sorted by athlete's name in the given order
+
                 break;
             case "event":
-                medalsList = // TODO: list of medals sorted by event in the given order
+                medalsList = ascendingOrder ? this.goldMedalRepository.findMedalAllByCountryOrderByEventAsc(countryName) :this.goldMedalRepository.findMedalAllByCountry(countryName);// TODO: list of medals sorted by event in the given order
+
                 break;
             default:
                 medalsList = new ArrayList<>();
