@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/countries")
@@ -70,7 +71,7 @@ public class GoldMedalController {
     }
 
     private CountryDetailsResponse getCountryDetailsResponse(String countryName) {
-        var countryOptional = // TODO: get the country; this repository method should return a java.util.Optional
+        var countryOptional = new Optional<Country>();// TODO: get the country; this repository method should return a java.util.Optional
         if (countryOptional.isEmpty()) {
             return new CountryDetailsResponse(countryName);
         }
