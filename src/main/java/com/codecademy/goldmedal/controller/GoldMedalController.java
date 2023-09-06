@@ -2,6 +2,7 @@ package com.codecademy.goldmedal.controller;
 
 import com.codecademy.goldmedal.model.*;
 import com.codecademy.goldmedal.repositories.GoldMedalRepository;
+import com.codecademy.goldmedal.repositories.CountryRepository;
 import org.apache.commons.text.WordUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,10 +16,12 @@ import java.util.Optional;
 public class GoldMedalController {
     // TODO: declare references to your repositories
     GoldMedalRepository goldMedalRepository;
+    CountryRepository countryRepository;
     // TODO: update your constructor to include your repositories
 
-    public GoldMedalController(GoldMedalRepository goldMedalRepository) {
+    public GoldMedalController(GoldMedalRepository goldMedalRepository, CountryRepository countryRepository) {
         this.goldMedalRepository = goldMedalRepository;
+        this.countryRepository = countryRepository;
     }
 
     @GetMapping
@@ -71,7 +74,7 @@ public class GoldMedalController {
     }
 
     private CountryDetailsResponse getCountryDetailsResponse(String countryName) {
-        var countryOptional = new Optional<Country>();// TODO: get the country; this repository method should return a java.util.Optional
+        var countryOptional = this.countryRepository.findCountryByName(countryName);// TODO: get the country; this repository method should return a java.util.Optional
         if (countryOptional.isEmpty()) {
             return new CountryDetailsResponse(countryName);
         }
