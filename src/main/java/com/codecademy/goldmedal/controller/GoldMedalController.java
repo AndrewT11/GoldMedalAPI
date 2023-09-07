@@ -82,9 +82,9 @@ public class GoldMedalController {
         var country = countryOptional.get();
         var goldMedalCount = this.goldMedalRepository.countByCountry(countryName);// TODO: get the medal count
 
-        var summerWins =  this.goldMedalRepository.findByCountryAndSeasonOrderByYearAsc(countryName, "summer");// TODO: get the collection of wins at the Summer Olympics, sorted by year in ascending order
+        var summerWins =  this.goldMedalRepository.findByCountryAndSeasonOrderByYearAsc(countryName, "Summer");// TODO: get the collection of wins at the Summer Olympics, sorted by year in ascending order
         var numberSummerWins = summerWins.size() > 0 ? summerWins.size() : null;
-        var totalSummerEvents = this.goldMedalRepository.countBySeason("summer");// TODO: get the total number of events at the Summer Olympics
+        var totalSummerEvents = this.goldMedalRepository.countBySeason("Summer");// TODO: get the total number of events at the Summer Olympics
         var percentageTotalSummerWins = totalSummerEvents != 0 && numberSummerWins != null ? (float) summerWins.size() / totalSummerEvents : null;
         var yearFirstSummerWin = summerWins.size() > 0 ? summerWins.get(0).getYear() : null;
 
