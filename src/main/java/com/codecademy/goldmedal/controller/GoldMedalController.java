@@ -116,17 +116,17 @@ public class GoldMedalController {
         List<Country> countries;
         switch (sortBy) {
             case "name":
-                countries = ascendingOrder? this.countryRepository.findCountryAllByOrderByNameAsc() : this.countryRepository.findCountryAllByOrderByNameDesc();// TODO: list of countries sorted by name in the given order
+                countries = ascendingOrder? this.countryRepository.findAllByOrderByNameAsc() : this.countryRepository.findAllByOrderByNameDesc();// TODO: list of countries sorted by name in the given order
                 break;
             case "gdp":
-                countries = ascendingOrder? this.countryRepository.findCountryAllByOrderByGdpAsc() : this.countryRepository.findCountryAllByOrderByGdpDesc();// TODO: list of countries sorted by gdp in the given order
+                countries = ascendingOrder? this.countryRepository.findAllByOrderByGdpAsc() : this.countryRepository.findAllByOrderByGdpDesc();// TODO: list of countries sorted by gdp in the given order
                 break;
             case "population":
-                countries = ascendingOrder ? this.countryRepository.findCountryAllByOrderByPopulationAsc() : this.countryRepository.findCountryAllByOrderByPopulationDesc();// TODO: list of countries sorted by population in the given order
+                countries = ascendingOrder ? this.countryRepository.findAllByOrderByPopulationAsc() : this.countryRepository.findAllByOrderByPopulationDesc();// TODO: list of countries sorted by population in the given order
                 break;
             case "medals":
             default:
-                countries = // TODO: list of countries in any order you choose; for sorting by medal count, additional logic below will handle that
+                countries = this.countryRepository.findAllByCountry();// TODO: list of countries in any order you choose; for sorting by medal count, additional logic below will handle that
                 break;
         }
 

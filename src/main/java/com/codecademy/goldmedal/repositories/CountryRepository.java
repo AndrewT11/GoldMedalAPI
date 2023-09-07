@@ -8,12 +8,13 @@ import java.util.List;
 public interface CountryRepository extends CrudRepository<Country, Integer>{
     Optional<Country> findCountryByName(String name);
 
-    List<Country> findCountryAllByOrderByNameAsc();
-    List<Country> findCountryAllByOrderByNameDesc();
-    List<Country>  findCountryAllByOrderByGdpAsc();
-    List<Country>  findCountryAllByOrderByGdpDesc();
+    List<Country> findAllByOrderByNameAsc();
+    List<Country> findAllByOrderByNameDesc();
+    List<Country>  findAllByOrderByGdpAsc();
+    List<Country>  findAllByOrderByGdpDesc();
 
-    List<Country> findCountryAllByOrderByPopulationAsc();
-    List<Country> findCountryAllByOrderByPopulationDesc();
+    List<Country> findAllByOrderByPopulationAsc();
+    List<Country> findAllByOrderByPopulationDesc();
+
 
 }
