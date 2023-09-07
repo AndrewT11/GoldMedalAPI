@@ -116,13 +116,13 @@ public class GoldMedalController {
         List<Country> countries;
         switch (sortBy) {
             case "name":
-                countries = this.countryRepository.findCountryAllByOrderByNameAsc();// TODO: list of countries sorted by name in the given order
+                countries = ascendingOrder? this.countryRepository.findCountryAllByOrderByNameAsc() : this.countryRepository.findCountryAllByOrderByNameDesc();// TODO: list of countries sorted by name in the given order
                 break;
             case "gdp":
-                countries = this.countryRepository.findCountryAllByOrderByGdpAsc();// TODO: list of countries sorted by gdp in the given order
+                countries = ascendingOrder? this.countryRepository.findCountryAllByOrderByGdpAsc() : this.countryRepository.findCountryAllByOrderByGdpDesc();// TODO: list of countries sorted by gdp in the given order
                 break;
             case "population":
-                countries = // TODO: list of countries sorted by population in the given order
+                countries = ascendingOrder ? this.countryRepository.findCountryAllByOrderByPopulationAsc() : this.countryRepository.findCountryAllByOrderByPopulationDesc();// TODO: list of countries sorted by population in the given order
                 break;
             case "medals":
             default:
