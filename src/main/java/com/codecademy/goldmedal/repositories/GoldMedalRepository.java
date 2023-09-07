@@ -23,4 +23,8 @@ public interface GoldMedalRepository extends CrudRepository<GoldMedal, Integer> 
 
     Integer findByCountryAndSeasonOrderByYearAsc(String country, String season);
     Integer countBySeason(String season);
+
+    Integer countBySeasonOrderByYearAsc(String season);
+
+
 }
