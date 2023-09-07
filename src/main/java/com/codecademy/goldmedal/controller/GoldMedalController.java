@@ -126,7 +126,7 @@ public class GoldMedalController {
                 break;
             case "medals":
             default:
-                countries = this.countryRepository.findAllByOrderByName();// TODO: list of countries in any order you choose; for sorting by medal count, additional logic below will handle that
+                countries = this.countryRepository.findAllByOrderByNameAsc();// TODO: list of countries in any order you choose; for sorting by medal count, additional logic below will handle that
                 break;
         }
 
