@@ -150,7 +150,7 @@ public class GoldMedalController {
     private List<CountrySummary> getCountrySummariesWithMedalCount(List<Country> countries) {
         List<CountrySummary> countrySummaries = new ArrayList<>();
         for (var country : countries) {
-            var goldMedalCount = this.goldMedalRepository.countAllByCountry();// TODO: get count of medals for the given country
+            var goldMedalCount = this.goldMedalRepository.countByCountry(country.getName());// TODO: get count of medals for the given country
             countrySummaries.add(new CountrySummary(country, goldMedalCount));
         }
         return countrySummaries;

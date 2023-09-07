@@ -28,5 +28,4 @@ public interface GoldMedalRepository extends CrudRepository<GoldMedal, Integer> 
 
     Integer countByGender(String gender);
 
-    Integer countAllByCountry();
 }
