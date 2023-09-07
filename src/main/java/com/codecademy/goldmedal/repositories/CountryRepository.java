@@ -16,5 +16,7 @@ public interface CountryRepository extends CrudRepository<Country, Integer>{
     List<Country> findAllByOrderByPopulationAsc();
     List<Country> findAllByOrderByPopulationDesc();
 
+    List<Country> findAllByOrderByName();
+
 
 }
