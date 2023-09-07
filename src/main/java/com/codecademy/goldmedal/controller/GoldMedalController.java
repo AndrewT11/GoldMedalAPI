@@ -94,8 +94,8 @@ public class GoldMedalController {
         var percentageTotalWinterWins = totalWinterEvents != 0 && numberWinterWins != null ? (float) winterWins.size() / totalWinterEvents : null;
         var yearFirstWinterWin = winterWins.size() > 0 ? winterWins.get(0).getYear() : null;
 
-        var numberEventsWonByFemaleAthletes = // TODO: get the number of wins by female athletes
-        var numberEventsWonByMaleAthletes = // TODO: get the number of wins by male athletes
+        var numberEventsWonByFemaleAthletes = this.goldMedalRepository.countByGender("Women");// TODO: get the number of wins by female athletes. MAY BE WRONG
+        var numberEventsWonByMaleAthletes = this.goldMedalRepository.countByGender("Men");// TODO: get the number of wins by male athletes. MAY BE WRONG
 
         return new CountryDetailsResponse(
                 countryName,
