@@ -47,22 +47,22 @@ public class GoldMedalController {
         List<GoldMedal> medalsList;
         switch (sortBy) {
             case "year":
-                medalsList = ascendingOrder ? this.goldMedalRepository.findMedalAllByCountryOrderByYearAsc(countryName) :  this.goldMedalRepository.findMedalAllByCountryOrderByYearDesc(countryName);// TODO: list of medals sorted by year in the given order
+                medalsList = ascendingOrder ? this.goldMedalRepository.findMedalByCountryOrderByYearAsc(countryName) :  this.goldMedalRepository.findMedalByCountryOrderByYearDesc(countryName);// TODO: list of medals sorted by year in the given order
                 break;
             case "season":
-                medalsList = ascendingOrder ? this.goldMedalRepository.findMedalAllByCountryOrderBySeasonAsc(countryName) : this.goldMedalRepository.findMedalAllByCountryOrderBySeasonDesc(countryName);// TODO: list of medals sorted by season in the given order
+                medalsList = ascendingOrder ? this.goldMedalRepository.findMedalByCountryOrderBySeasonAsc(countryName) : this.goldMedalRepository.findMedalByCountryOrderBySeasonDesc(countryName);// TODO: list of medals sorted by season in the given order
 
                 break;
             case "city":
-                medalsList = ascendingOrder ? this.goldMedalRepository.findMedalAllByCountryOrderByCityAsc(countryName) : this.goldMedalRepository.findMedalAllByCountryOrderByCityDesc(countryName);// TODO: list of medals sorted by city in the given order
+                medalsList = ascendingOrder ? this.goldMedalRepository.findMedalByCountryOrderByCityAsc(countryName) : this.goldMedalRepository.findMedalByCountryOrderByCityDesc(countryName);// TODO: list of medals sorted by city in the given order
 
                 break;
             case "name":
-                medalsList = ascendingOrder ? this.goldMedalRepository.findMedalAllByCountryOrderByNameAsc(countryName) : this.goldMedalRepository.findMedalAllByCountryOrderByNameDesc(countryName);// TODO: list of medals sorted by athlete's name in the given order
+                medalsList = ascendingOrder ? this.goldMedalRepository.findMedalByCountryOrderByNameAsc(countryName) : this.goldMedalRepository.findMedalByCountryOrderByNameDesc(countryName);// TODO: list of medals sorted by athlete's name in the given order
 
                 break;
             case "event":
-                medalsList = ascendingOrder ? this.goldMedalRepository.findMedalAllByCountryOrderByEventAsc(countryName) : this.goldMedalRepository.findMedalAllByCountryOrderByEventDesc(countryName);// TODO: list of medals sorted by event in the given order
+                medalsList = ascendingOrder ? this.goldMedalRepository.findMedalByCountryOrderByEventAsc(countryName) : this.goldMedalRepository.findMedalByCountryOrderByEventDesc(countryName);// TODO: list of medals sorted by event in the given order
 
                 break;
             default:
